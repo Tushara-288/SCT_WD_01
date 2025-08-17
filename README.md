@@ -1,1 +1,292 @@
-# SCT_WD_01
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waffles & Ice Creams</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fefcf9;
+    }
+
+    /* Hide menu until login */
+    #mainContent {
+      display: none;
+    }
+
+    /* Login full page */
+    #loginPage {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1601924582975-df7c2811a39e') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background: rgba(255,255,255,0.9);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      text-align: center;
+      max-width: 300px;
+      width: 100%;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #ff9800;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #e68900;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px 30px;
+      display: flex;
+      justify-content: center;
+      transition: background 0.3s, box-shadow 0.3s;
+      z-index: 1000;
+    }
+
+    nav.scrolled {
+      background: #ffebd6;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      text-decoration: none;
+      font-size: 14px;
+      color: #333;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    nav ul li a img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    nav ul li a:hover img {
+      transform: scale(1.2);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    nav ul li a:hover {
+      color: #ff9800;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 50px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    /* Menu grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .menu-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    .menu-item img {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      object-fit: cover;
+    }
+
+    .menu-item h3 {
+      margin: 10px 0 5px;
+      color: #444;
+    }
+
+    .menu-item p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* Contact */
+    #contact p {
+      text-align: center;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Page -->
+  <div id="loginPage">
+    <div class="login-box">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button onclick="checkLogin()">Login</button>
+      <p id="error" style="color:red; display:none;">Invalid Username or Password</p>
+    </div>
+  </div>
+
+  <!-- Main Content (hidden until login) -->
+  <div id="mainContent">
+    <!-- Navigation -->
+    <nav id="navbar">
+      <ul>
+        <li><a href="#waffles"><img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">Waffles</a></li>
+        <li><a href="#icecream"><img src="https://cdn-icons-png.flaticon.com/512/3075/3075972.png">Ice Creams</a></li>
+        <li><a href="#drinks"><img src="https://cdn-icons-png.flaticon.com/512/3081/3081861.png">Drinks</a></li>
+        <li><a href="#contact"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Waffles -->
+    <section id="waffles">
+      <h1>Our Waffles 🧇</h1>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="https://images.unsplash.com/photo-1601924582975-df7c2811a39e" alt="Classic Waffle">
+          <h3>Classic Waffle</h3>
+          <p>Golden crispy waffle served with maple syrup.</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://images.unsplash.com/photo-1625938145740-6fbb5b9d5c64" alt="Chocolate Waffle">
+          <h3>Chocolate Waffle</h3>
+          <p>Rich cocoa waffle topped with hot fudge.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ice Creams -->
+    <section id="icecream">
+      <h1>Ice Creams 🍦</h1>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Vanilla">
+          <h3>Vanilla</h3>
+          <p>Creamy vanilla scoop with a smooth finish.</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://images.unsplash.com/photo-1565958011703-44c2f738dd67" alt="Chocolate">
+          <h3>Chocolate</h3>
+          <p>Decadent chocolate ice cream with rich taste.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Drinks -->
+    <section id="drinks">
+      <h1>Refreshing Drinks 🥤</h1>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87" alt="Cold Coffee">
+          <h3>Cold Coffee</h3>
+          <p>Chilled coffee topped with whipped cream.</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://images.unsplash.com/photo-1603052875281-80a3ee7c13a2" alt="Milkshake">
+          <h3>Milkshake</h3>
+          <p>Thick shake with your favorite flavor.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h1>Contact Us 📞</h1>
+      <p>For orders & catering: <b>+91-9876543210</b></p>
+      <p>Email: <b>waffleshop@example.com</b></p>
+    </section>
+  </div>
+
+  <script>
+    function checkLogin() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const error = document.getElementById("error");
+
+      if (user === "tushara" && pass === "1234") {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+      } else {
+        error.style.display = "block";
+      }
+    }
+
+    // Navbar scroll effect
+    window.addEventListener("scroll", function() {
+      const navbar = document.getElementById("navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+</body>
+</html>
